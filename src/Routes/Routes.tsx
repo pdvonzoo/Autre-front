@@ -1,7 +1,8 @@
 import * as React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Main from "./Main";
-import LoginPresenter from "./Login";
+import SignInPresenter from "./SignIn";
+import SignUpPresenter from "./SignUp";
 
 const AppPath: React.SFC = () => {
   return (
@@ -15,7 +16,8 @@ const LoggedInRoutes: React.SFC = () => {
   return (
     <Switch>
       <Route path="/" exact={true} component={Main} />
-      <Route path="/login" exact={true} component={LoginPresenter} />
+      <Route path="/signin" exact={true} component={SignInPresenter} />
+      <Route path="/signup" exact={true} component={SignUpPresenter} />
     </Switch>
   );
 };
