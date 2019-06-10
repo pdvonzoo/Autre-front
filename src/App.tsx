@@ -1,11 +1,7 @@
 import React from "react";
-import "./dotenv";
+import "./Utils/dotenv";
 import AppRoutes from "./Routes/Routes";
 
-const App: React.FC = () => (
-  <div className="App">
-    <AppRoutes />
-  </div>
-);
+const App: React.FC = () => <AppRoutes />;
 
 export default App;

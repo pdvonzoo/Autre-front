@@ -5,7 +5,9 @@ import { defaults } from "./LocalState";
 
 const cache = new InMemoryCache();
 
-export const client = new ApolloClient({
+const client = new ApolloClient({
   link: createHttpLink({ uri: process.env.SERVER_URL }),
   cache
 });
+
+export default client;
