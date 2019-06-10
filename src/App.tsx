@@ -4,9 +4,11 @@ import AppRoutes from "./Routes/Routes";
 import { ThemeProvider } from "./Utils/typed-styledCom";
 import theme from "./Utils/theme";
 import GlobalStyled from "./Utils/global-styles";
+import Header from "./Components/Header";
 
 const App: React.FC = () => (
   <>
+    <Header />
     <GlobalStyled />
     <ThemeProvider theme={theme}>
       <AppRoutes />
