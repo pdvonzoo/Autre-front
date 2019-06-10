@@ -15,9 +15,9 @@ const AppPath: React.SFC = () => {
 const LoggedInRoutes: React.SFC = () => {
   return (
     <Switch>
-      <Route path="/" exact={true} component={Main} />
-      <Route path="/signin" exact={true} component={SignInPresenter} />
-      <Route path="/signup" exact={true} component={SignUpPresenter} />
+      <Route path="/" exact component={Main} />
+      <Route path="/signin" exact component={SignInPresenter} />
+      <Route path="/signup" exact component={SignUpPresenter} />
     </Switch>
   );
 };
