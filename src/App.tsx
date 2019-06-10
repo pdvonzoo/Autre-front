@@ -8,8 +8,8 @@ import Header from "./Components/Header";
 
 const App: React.FC = () => (
   <>
-    <Header />
     <GlobalStyled />
+    <Header />
     <ThemeProvider theme={theme}>
       <AppRoutes />
     </ThemeProvider>

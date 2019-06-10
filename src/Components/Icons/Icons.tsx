@@ -8,10 +8,24 @@ const LogoWrapper = styled.div`
 `;
 const LogoIcon = styled.img``;
 
+const IconWrapper = styled.div`
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+`;
+
+const UserIcon = styled.img``;
+
 const Logo = () => (
   <LogoWrapper>
     <LogoIcon />
   </LogoWrapper>
 );
 
-export default Logo;
+const User = () => (
+  <IconWrapper>
+    <UserIcon />
+  </IconWrapper>
+);
+
+export { Logo, User };

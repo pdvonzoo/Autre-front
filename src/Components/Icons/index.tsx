@@ -1,2 +1,2 @@
-import Logo from "./Icons";
-export default Logo;
+import { Logo, User } from "./Icons";
+export { Logo, User };
