@@ -1,5 +1,4 @@
 import * as React from "react";
-import axios from "axios";
 import SignUpPresenter from "./SignUpPresenter";
 import useInput from "../../Hooks/useInput";
 

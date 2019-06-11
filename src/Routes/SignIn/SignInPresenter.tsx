@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { FunctionComponent } from "react";
 import styled from "../../Utils/typed-styledCom";
 
 const Form = styled.form`
@@ -9,18 +9,26 @@ const Label = styled.label``;
 
 const Input = styled.input``;
 
-interface IProps {}
+interface InputValue {
+  value: string;
+  setValue: any;
+  onChange: any;
+}
 
-const SignInPresenter = () => {
+const SignInPresenter: FunctionComponent<{
+  email: InputValue;
+  secret: InputValue;
+  handleSubmit: any;
+}> = ({ email, secret, handleSubmit }) => {
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Label>
         Email
-        <Input />
+        <Input defaultValue={email.value} onChange={email.onChange} />
       </Label>
       <Label>
         Password
-        <Input />
+        <Input defaultValue={secret.value} onChange={secret.onChange} />
       </Label>
       <input type="submit" />
     </Form>
