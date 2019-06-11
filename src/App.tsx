@@ -9,7 +9,7 @@ import Header from "./Components/Header";
 const App: React.FC = () => (
   <>
     <GlobalStyled />
-    <Header />
+    {/* <Header /> */}
     <ThemeProvider theme={theme}>
       <AppRoutes />
     </ThemeProvider>

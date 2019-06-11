@@ -1,2 +1,2 @@
-import SignUpPresenter from "./SignUpPresenter";
-export default SignUpPresenter;
+import SignUpContainer from "./SignUpContainer";
+export default SignUpContainer;
