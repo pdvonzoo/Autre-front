@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import SignUpPresenter from "./SignUpPresenter";
 import useInput from "../../Hooks/useInput";
 

@@ -1,6 +1,6 @@
-import * as React from "react";
-import useInput from "../../Hooks/useInput";
+import React from "react";
 import SignInPresenter from "./SignInPresenter";
+import useInput from "../../Hooks/useInput";
 
 const SignInContainer = () => {
   const email = useInput("");
