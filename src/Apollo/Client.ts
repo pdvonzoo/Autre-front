@@ -5,7 +5,7 @@ import { createHttpLink } from "apollo-link-http";
 const cache = new InMemoryCache();
 
 const client = new ApolloClient({
-  link: createHttpLink({ uri: process.env.SERVER_URL }),
+  link: createHttpLink({ uri: "http://localhost:5000" }),
   cache
 });
 

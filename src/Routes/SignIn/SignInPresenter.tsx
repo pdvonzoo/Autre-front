@@ -5,7 +5,9 @@ const Form = styled.form`
   width: 500rem;
 `;
 
-const Label = styled.label``;
+const Label = styled.label`
+  display: block;
+`;
 
 const Input = styled.input``;
 

@@ -2,12 +2,24 @@ import React, { FunctionComponent } from "react";
 import styled from "../../Utils/typed-styledCom";
 
 const Form = styled.form`
-  width: 500rem;
+  margin: auto;
+  width: 50rem;
 `;
 
-const Label = styled.label``;
+const Label = styled.label`
+  display: block;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+`;
 
-const Input = styled.input``;
+const InputInfo = styled.div`
+  display: inline-block;
+  width: 10rem;
+`;
+
+const Input = styled.input`
+  width: 40rem;
+`;
 
 interface InputValue {
   value: string;
@@ -37,33 +49,37 @@ const SignUpPresenter: FunctionComponent<{
   return (
     <Form onSubmit={handleSubmit}>
       <Label>
-        Id
+        <InputInfo>Id</InputInfo>
         <Input defaultValue={userid.value} onChange={userid.onChange} />
       </Label>
       <Label>
-        Email
+        <InputInfo>Email</InputInfo>
         <Input defaultValue={email.value} onChange={email.onChange} />
       </Label>
       <Label>
-        Password
+        <InputInfo>Password</InputInfo>
         <Input defaultValue={secret.value} onChange={secret.onChange} />
       </Label>
       <Label>
-        Address
-        <Input defaultValue={userimage.value} onChange={userimage.onChange} />
+        <InputInfo>Name</InputInfo>
+        <Input defaultValue={username.value} onChange={username.onChange} />
       </Label>
       <Label>
-        phone
+        <InputInfo>Address</InputInfo>
+        <Input defaultValue={address.value} onChange={address.onChange} />
+      </Label>
+      <Label>
+        <InputInfo>Phone</InputInfo>
         <Input
           defaultValue={phonenumber.value}
           onChange={phonenumber.onChange}
         />
       </Label>
       <Label>
-        Image
-        <Input defaultValue={username.value} onChange={username.onChange} />
+        <InputInfo>Image</InputInfo>
+        <Input defaultValue={userimage.value} onChange={userimage.onChange} />
       </Label>
-      <input type="submit" />
+      <input type="button" value="Sign Up" onClick={handleSubmit} />
     </Form>
   );
 };
