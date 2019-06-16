@@ -1,11 +1,5 @@
 import React from "react";
 
-interface IProps {
-  value: string;
-  setValue: any;
-  onChange: any;
-}
-
 const useInput = (defaultValue: string) => {
   const [value, setValue] = React.useState(defaultValue);
 

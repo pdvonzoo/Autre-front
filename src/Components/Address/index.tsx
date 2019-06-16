@@ -1,2 +1,4 @@
-import Address from "./Address";
-export default Address;
+import AddressAPI from "./AddressAPI";
+import AddressPresenter from "./AddressPresenter";
+
+export { AddressAPI, AddressPresenter };
