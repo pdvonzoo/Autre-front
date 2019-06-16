@@ -34,6 +34,7 @@ const SignUpContainer = () => {
   const phonenumber = useInput("");
   const username = useInput("");
   const userimage = useInput("");
+
   const register = useMutation(REGISTER_USER, {
     variables: {
       userid: userid.value,

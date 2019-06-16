@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "../../Utils/typed-styledCom";
+import Address from "../../Components/Address";
 
 const Form = styled.form`
   margin: auto;
@@ -67,6 +68,7 @@ const SignUpPresenter: FunctionComponent<{
       <Label>
         <InputInfo>Address</InputInfo>
         <Input defaultValue={address.value} onChange={address.onChange} />
+        <Address setValue={address.setValue} />
       </Label>
       <Label>
         <InputInfo>Phone</InputInfo>
