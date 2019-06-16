@@ -3,10 +3,13 @@ import SignUpPresenter from "./SignUpPresenter";
 import useInput from "../../Hooks/useInput";
 
 const SignUpContainer = () => {
+  const userid = useInput("");
   const email = useInput("");
-  const username = useInput("");
   const secret = useInput("");
-  const phoneNum = useInput("");
+  const address = useInput("");
+  const phonenumber = useInput("");
+  const username = useInput("");
+  const userimage = useInput("");
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault();
@@ -14,10 +17,13 @@ const SignUpContainer = () => {
 
   return (
     <SignUpPresenter
-      username={username}
+      userid={userid}
       email={email}
       secret={secret}
-      phoneNum={phoneNum}
+      address={address}
+      phonenumber={phonenumber}
+      username={username}
+      userimage={userimage}
       handleSubmit={handleSubmit}
     />
   );

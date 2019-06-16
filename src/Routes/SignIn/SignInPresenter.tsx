@@ -16,15 +16,29 @@ interface InputValue {
 }
 
 const SignInPresenter: FunctionComponent<{
+  userid: InputValue;
   email: InputValue;
   secret: InputValue;
+  address: InputValue;
+  phonenumber: InputValue;
+  username: InputValue;
+  userimage: InputValue;
   handleSubmit: any;
-}> = ({ email, secret, handleSubmit }) => {
+}> = ({
+  userid,
+  email,
+  secret,
+  address,
+  phonenumber,
+  username,
+  userimage,
+  handleSubmit
+}) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Label>
-        Email
-        <Input defaultValue={email.value} onChange={email.onChange} />
+        Id
+        <Input defaultValue={userid.value} onChange={userid.onChange} />
       </Label>
       <Label>
         Password

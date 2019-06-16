@@ -16,14 +16,30 @@ interface InputValue {
 }
 
 const SignUpPresenter: FunctionComponent<{
-  username: InputValue;
+  userid: InputValue;
   email: InputValue;
   secret: InputValue;
-  phoneNum: InputValue;
+  address: InputValue;
+  phonenumber: InputValue;
+  username: InputValue;
+  userimage: InputValue;
   handleSubmit: any;
-}> = ({ username, email, secret, phoneNum, handleSubmit }) => {
+}> = ({
+  userid,
+  email,
+  secret,
+  address,
+  phonenumber,
+  username,
+  userimage,
+  handleSubmit
+}) => {
   return (
     <Form onSubmit={handleSubmit}>
+      <Label>
+        Id
+        <Input defaultValue={userid.value} onChange={userid.onChange} />
+      </Label>
       <Label>
         Email
         <Input defaultValue={email.value} onChange={email.onChange} />
@@ -33,12 +49,19 @@ const SignUpPresenter: FunctionComponent<{
         <Input defaultValue={secret.value} onChange={secret.onChange} />
       </Label>
       <Label>
-        name
-        <Input defaultValue={username.value} onChange={username.onChange} />
+        Address
+        <Input defaultValue={userimage.value} onChange={userimage.onChange} />
       </Label>
       <Label>
-        Phone number
-        <Input defaultValue={phoneNum.value} onChange={phoneNum.onChange} />
+        phone
+        <Input
+          defaultValue={phonenumber.value}
+          onChange={phonenumber.onChange}
+        />
+      </Label>
+      <Label>
+        Image
+        <Input defaultValue={username.value} onChange={username.onChange} />
       </Label>
       <input type="submit" />
     </Form>
