@@ -68,7 +68,6 @@ const SignUpPresenter: FunctionComponent<{
       <Label>
         <InputInfo>Address</InputInfo>
         <AddressPresenter addressValue={address.value} />
-        <Input defaultValue={address.value} onChange={address.onChange} />
         <AddressAPI setValue={address.setValue} />
       </Label>
       <Label>
