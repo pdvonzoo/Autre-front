@@ -76,6 +76,10 @@ const SignUpPresenter: FunctionComponent<{
           defaultValue={phonenumber.value}
           onChange={phonenumber.onChange}
         />
+        <input type="text" />
+        <button type="button" onClick={() => console.log("클릭")}>
+          인증번호 받기
+        </button>
       </Label>
       <Label>
         <InputInfo>Image</InputInfo>
