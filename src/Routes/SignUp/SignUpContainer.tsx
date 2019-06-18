@@ -46,9 +46,7 @@ const SignUpContainer = () => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
     try {
-      console.log(userid.value, secret.value, username.value);
       const { data } = await register();
-      console.log(data);
     } catch (err) {
       console.log(err);
     }
