@@ -32,7 +32,9 @@ const SignInPresenter: FunctionComponent<{
         Password
         <Input defaultValue={secret.value} onChange={secret.onChange} />
       </Label>
-      <input type="submit" />
+      <button type="button" onClick={handleSubmit}>
+        Sign in
+      </button>
     </Form>
   );
 };
