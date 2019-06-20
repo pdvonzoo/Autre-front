@@ -26,28 +26,30 @@ const ShippingFee = styled.div``;
 const NumOption = styled.div``;
 const AddCart = styled.button``;
 
-const ProductDetail = () => (
-  <ProductWrapper>
-    <Header>
-      <ImageWrapper>
+const ProductDetail = () => {
+  return (
+    <ProductWrapper>
+      <Header>
+        <ImageWrapper>
+          <Image src={ShopImage} />
+        </ImageWrapper>
+        <ProductPay>
+          <Title>receipt</Title>
+          <Price>3,000원</Price>
+          <ShippingFee>
+            <span>배송비</span>
+            <span>2,500원(50,000원 이상 구매 시 무료)</span>
+          </ShippingFee>
+          <NumOption />
+          <AddCart>Cart</AddCart>
+        </ProductPay>
+      </Header>
+      <Main>
         <Image src={ShopImage} />
-      </ImageWrapper>
-      <ProductPay>
-        <Title>receipt</Title>
-        <Price>3,000원</Price>
-        <ShippingFee>
-          <span>배송비</span>
-          <span>2,500원(50,000원 이상 구매 시 무료)</span>
-        </ShippingFee>
-        <NumOption />
-        <AddCart>Cart</AddCart>
-      </ProductPay>
-    </Header>
-    <Main>
-      <Image src={ShopImage} />
-      <Review />
-    </Main>
-  </ProductWrapper>
-);
+        <Review />
+      </Main>
+    </ProductWrapper>
+  );
+};
 
 export default ProductDetail;
