@@ -2,6 +2,9 @@ import * as React from "react";
 import styled from "../../Utils/typed-styledCom";
 import ShopImage from "../../Assets/shop1.jpg";
 import Review from "../../Components/Review";
+import { useMutation } from "react-apollo-hooks";
+import ADD_CART from "./ProductDetailQuery";
+import { withRouter } from "react-router";
 
 const ProductWrapper = styled.div``;
 const Header = styled.div`
@@ -27,6 +30,11 @@ const NumOption = styled.div``;
 const AddCart = styled.button``;
 
 const ProductDetail = () => {
+  const addCart = useMutation(ADD_CART, {
+    variables: {
+      productid: ""
+    }
+  });
   return (
     <ProductWrapper>
       <Header>
@@ -41,7 +49,9 @@ const ProductDetail = () => {
             <span>2,500원(50,000원 이상 구매 시 무료)</span>
           </ShippingFee>
           <NumOption />
-          <AddCart>Cart</AddCart>
+          <AddCart type="button" onClick={(e: any) => addCart(e)}>
+            Cart
+          </AddCart>
         </ProductPay>
       </Header>
       <Main>
@@ -52,4 +62,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default withRouter(ProductDetail);
