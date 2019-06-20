@@ -24,7 +24,6 @@ const SignInContainer = () => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
     const { data } = await confirmUser();
-    console.log(data);
   };
 
   return (

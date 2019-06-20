@@ -4,7 +4,7 @@ import Main from "./Main";
 import SignInContainer from "./SignIn";
 import SignUpContainer from "./SignUp";
 import Shop from "./Shop";
-import Product from "./Product";
+import ProductDetail from "./ProductDetail";
 import User from "./User";
 import Cart from "./Cart";
 import Order from "./Order";
@@ -24,7 +24,7 @@ const LoggedInRoutes = () => {
       <Route path="/signin" exact component={SignInContainer} />
       <Route path="/signup" exact component={SignUpContainer} />
       <Route path="/shop" exact component={Shop} />
-      <Route path="/shop/:product" exact component={Product} />
+      <Route path="/shop/:product" exact component={ProductDetail} />
       <Route path="/cart/:userid" exact component={Cart} />
       <Route path="/order/:userid" exact component={Order} />
       <Route path="/:userid" exact component={User} />

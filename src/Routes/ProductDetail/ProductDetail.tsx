@@ -26,7 +26,7 @@ const ShippingFee = styled.div``;
 const NumOption = styled.div``;
 const AddCart = styled.button``;
 
-const Product = () => (
+const ProductDetail = () => (
   <ProductWrapper>
     <Header>
       <ImageWrapper>
@@ -50,4 +50,4 @@ const Product = () => (
   </ProductWrapper>
 );
 
-export default Product;
+export default ProductDetail;
