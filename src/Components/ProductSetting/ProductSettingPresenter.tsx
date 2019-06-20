@@ -25,14 +25,14 @@ const ProductSettingPresenter: FunctionComponent<{
   return (
     <Form onSubmit={handleSubmit}>
       <Label>
-        Id
+        제품 이름
         <Input
           defaultValue={productname.value}
           onChange={productname.onChange}
         />
       </Label>
       <Label>
-        Password
+        제품 이미지
         <Input
           defaultValue={productimage.value}
           onChange={productimage.onChange}
