@@ -2,13 +2,7 @@ import React from "react";
 import SignInPresenter from "./SignInPresenter";
 import useInput from "../../Hooks/useInput";
 import { useMutation } from "react-apollo-hooks";
-import gql from "graphql-tag";
-
-const CONFIRM_USER = gql`
-  mutation cofirmAccount($userid: String, $secret: String) {
-    cofirmAccount(userid: $userid, secret: $secret)
-  }
-`;
+import CONFIRM_USER from "./SignInQuery";
 
 const SignInContainer = () => {
   const userid = useInput("");

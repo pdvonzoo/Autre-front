@@ -1,30 +1,8 @@
 import React from "react";
-import gql from "graphql-tag";
 import { useMutation } from "react-apollo-hooks";
 import SignUpPresenter from "./SignUpPresenter";
 import useInput from "../../Hooks/useInput";
-
-const REGISTER_USER = gql`
-  mutation createAccount(
-    $userid: String
-    $email: String
-    $secret: String
-    $address: String
-    $phonenumber: String
-    $username: String
-    $userimage: String
-  ) {
-    createAccount(
-      userid: $userid
-      email: $email
-      secret: $secret
-      address: $address
-      phonenumber: $phonenumber
-      username: $username
-      userimage: $userimage
-    )
-  }
-`;
+import REGISTER_USER from "./SignUpQuery";
 
 const SignUpContainer = () => {
   const userid = useInput("");
