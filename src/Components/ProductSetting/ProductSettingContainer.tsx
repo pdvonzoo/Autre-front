@@ -1,5 +1,5 @@
 import * as React from "react";
-import useInput from "../../../Hooks/useInput";
+import useInput from "../../Hooks/useInput";
 import gql from "graphql-tag";
 import { useMutation } from "react-apollo-hooks";
 import ProductSettingPresenter from "./ProductSettingPresenter";

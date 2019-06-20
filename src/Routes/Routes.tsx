@@ -8,6 +8,7 @@ import ProductDetail from "./ProductDetail";
 import User from "./User";
 import Cart from "./Cart";
 import Order from "./Order";
+import ProductSettingContainer from "../Components/ProductSetting";
 
 const AppPath = () => {
   return (
@@ -24,7 +25,12 @@ const LoggedInRoutes = () => {
       <Route path="/signin" exact component={SignInContainer} />
       <Route path="/signup" exact component={SignUpContainer} />
       <Route path="/shop" exact component={Shop} />
-      <Route path="/shop/:product" exact component={ProductDetail} />
+      <Route path="/product/:product" exact component={ProductDetail} />
+      <Route
+        path="/product/:product/setting"
+        exact
+        component={ProductSettingContainer}
+      />
       <Route path="/cart/:userid" exact component={Cart} />
       <Route path="/order/:userid" exact component={Order} />
       <Route path="/:userid" exact component={User} />

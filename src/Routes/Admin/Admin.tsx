@@ -1,6 +1,12 @@
 import * as React from "react";
-import styled from "../../Utils/typed-styledCom";
+import ProductSettingContainer from "../../Components/ProductSetting";
+import ProductList from "../../Components/ProductList";
 
-const Admin = () => <></>;
+const Admin = () => (
+  <>
+    <ProductSettingContainer />
+    <ProductList />
+  </>
+);
 
 export default Admin;

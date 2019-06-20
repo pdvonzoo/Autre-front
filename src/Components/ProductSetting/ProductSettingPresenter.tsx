@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import styled from "../../../Utils/typed-styledCom";
+import styled from "../../Utils/typed-styledCom";
 
 const Form = styled.form`
   width: 500rem;
@@ -39,7 +39,7 @@ const ProductSettingPresenter: FunctionComponent<{
         />
       </Label>
       <button type="button" onClick={handleSubmit}>
-        Sign in
+        제품 등록
       </button>
     </Form>
   );
