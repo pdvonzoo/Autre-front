@@ -1,3 +1,4 @@
 import React from "react";
 
-export default () => <div>Footer</div>;
+const Item = ({ item }: any) => <div>${item.productname}</div>;
+export default Item;
