@@ -4,10 +4,10 @@ import { DELETE_PRODUCT, EDIT_PRODUCT } from "./ItemQuery";
 
 const Item = ({ item }: any) => {
   const deleteProduct = useMutation(DELETE_PRODUCT, {
-    variables: { id: item.id }
+    variables: { id: item._id }
   });
   const editProduct = useMutation(EDIT_PRODUCT, {
-    variables: { id: item.id }
+    variables: { id: item._id }
   });
   return (
     <>
