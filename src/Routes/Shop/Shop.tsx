@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "../../Utils/typed-styledCom";
-import ShopImage from "../../Assets/shop1.jpg";
+// import ShopImage from "../../Assets/shop1.jpg";
+import ProductList from "../../Components/ProductList";
 
 const ShopWrapper = styled.div``;
 const ShopList = styled.div``;
@@ -22,7 +23,8 @@ const Price = styled.p``;
 
 const Shop = () => (
   <ShopWrapper>
-    <ShopList>
+    <ProductList />
+    {/* <ShopList>
       <ShopItem>
         <Image src={ShopImage} />
         <Title>receip</Title>
@@ -58,7 +60,7 @@ const Shop = () => (
         <Title>receip</Title>
         <Price>3,000원</Price>
       </ShopItem>
-    </ShopList>
+    </ShopList> */}
   </ShopWrapper>
 );
 

@@ -27,7 +27,7 @@ const LoggedInRoutes = () => {
       <Route path="/signin" exact component={SignInContainer} />
       <Route path="/signup" exact component={SignUpContainer} />
       <Route path="/shop" exact component={Shop} />
-      <Route path="/product/:product" exact component={ProductDetail} />
+      <Route path="/product/:productid" exact component={ProductDetail} />
       <Route
         path="/product/:product/setting"
         exact
