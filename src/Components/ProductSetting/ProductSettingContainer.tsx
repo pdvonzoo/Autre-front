@@ -24,6 +24,7 @@ const ProductSettingContainer = () => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
     const { data } = await registerProduct();
+    console.log(data);
   };
 
   return (

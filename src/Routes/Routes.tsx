@@ -9,6 +9,7 @@ import User from "./User";
 import Cart from "./Cart";
 import Order from "./Order";
 import ProductSettingContainer from "../Components/ProductSetting";
+import Admin from "./Admin";
 
 const AppPath = () => {
   return (
@@ -22,6 +23,7 @@ const LoggedInRoutes = () => {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
+      <Route path="/admin" exact component={Admin} />
       <Route path="/signin" exact component={SignInContainer} />
       <Route path="/signup" exact component={SignUpContainer} />
       <Route path="/shop" exact component={Shop} />
