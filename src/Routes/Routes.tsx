@@ -33,7 +33,7 @@ const LoggedInRoutes = () => {
         exact
         component={ProductSettingContainer}
       />
-      <Route path="/cart/:userid" exact component={Cart} />
+      <Route path="/cart" exact component={Cart} />
       <Route path="/order/:userid" exact component={Order} />
       <Route path="/:userid" exact component={User} />
     </Switch>
