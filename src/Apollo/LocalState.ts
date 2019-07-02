@@ -1,5 +1,19 @@
 import { getCookie, deleteCookie } from "../Utils/utils";
 
+export const typeDefs = `
+  type Address: {
+    addressType: String
+    zonecode: String
+    address: String
+    roadAddress: String
+    jibunAddress: String
+    sido: String
+    sigungu: String
+    bname: String
+    query: String
+  }
+`;
+
 export const defaults = {
   auth: {
     __typename: "Auth",

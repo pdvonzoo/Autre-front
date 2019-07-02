@@ -2,7 +2,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { withClientState } from "apollo-link-state";
-import { defaults, resolvers } from "./LocalState";
+import { defaults, resolvers, typeDefs } from "./LocalState";
 import { ApolloLink } from "apollo-link";
 
 const cache = new InMemoryCache();
@@ -13,6 +13,7 @@ const link = ApolloLink.from([
 ]);
 
 const client = new ApolloClient({
+  typeDefs,
   link,
   cache
 });

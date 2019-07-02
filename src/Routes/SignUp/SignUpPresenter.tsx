@@ -37,6 +37,7 @@ const SignUpPresenter: FunctionComponent<{
   username: InputValue;
   userimage: InputValue;
   handleSubmit: any;
+  sendSMS: any;
 }> = ({
   userid,
   email,
@@ -45,7 +46,8 @@ const SignUpPresenter: FunctionComponent<{
   phonenumber,
   username,
   userimage,
-  handleSubmit
+  handleSubmit,
+  sendSMS
 }) => {
   return (
     <Form onSubmit={handleSubmit}>
@@ -67,7 +69,10 @@ const SignUpPresenter: FunctionComponent<{
       </Label>
       <Label>
         <InputInfo>Address</InputInfo>
-        <AddressPresenter addressValue={address.value} />
+        <AddressPresenter
+          addressValue={address.value}
+          setValue={address.setValue}
+        />
         <AddressAPI setValue={address.setValue} />
       </Label>
       <Label>
@@ -77,7 +82,7 @@ const SignUpPresenter: FunctionComponent<{
           onChange={phonenumber.onChange}
         />
         <input type="text" />
-        <button type="button" onClick={() => console.log("클릭")}>
+        <button type="button" onClick={sendSMS}>
           인증번호 받기
         </button>
       </Label>

@@ -1,10 +1,11 @@
 import React from "react";
 
 const OrderPresenter = ({ product, user }: any) => {
+  console.log(product);
   return (
     <>
-      <div>{product.productname}</div>
-      <div>{user.userid}</div>
+      <div>productname: {product[0].productname}</div>
+      <div>userid: {user.userid}</div>
     </>
   );
 };

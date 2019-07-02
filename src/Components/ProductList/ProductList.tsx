@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-apollo-hooks";
-import Item from "../Item";
+import Item from "../Product";
 import SEE_PRODUCTS from "./ProductListQuery";
 
 const ProductList = () => {

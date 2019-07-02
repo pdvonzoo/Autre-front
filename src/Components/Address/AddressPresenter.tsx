@@ -8,7 +8,7 @@ const AddressWrapper = styled.div`
 const Label = styled.label``;
 const Input = styled.input``;
 
-const AddressPresenter = ({ addressValue }: any) => {
+const AddressPresenter = ({ addressValue, setValue }: any) => {
   const getAddress = ({ addressValue }: any) => {
     const address =
       addressValue.userSelectedType === "R"
@@ -28,7 +28,11 @@ const AddressPresenter = ({ addressValue }: any) => {
         <Input defaultValue={getAddress({ addressValue })} />
       </Label>
       <Label>
-        <Input />
+        <Input
+          onChange={(e: any) =>
+            setValue({ ...addressValue, query: e.target.value })
+          }
+        />
       </Label>
     </AddressWrapper>
   );

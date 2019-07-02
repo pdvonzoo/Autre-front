@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation } from "react-apollo-hooks";
-import { DELETE_PRODUCT, EDIT_PRODUCT } from "./ItemQuery";
+import { DELETE_PRODUCT, EDIT_PRODUCT } from "./ProductQuery";
 import { withRouter } from "react-router";
 
 const Item = ({ item, history }: any) => {

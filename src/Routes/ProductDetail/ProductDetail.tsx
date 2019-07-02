@@ -33,7 +33,8 @@ const ProductDetail = ({
   match: {
     params: { productid }
   },
-  location: { state }
+  location: { state },
+  history
 }: any) => {
   const addCart = useMutation(ADD_CART, {
     variables: {
@@ -54,7 +55,13 @@ const ProductDetail = ({
             <span>2,500원(50,000원 이상 구매 시 무료)</span>
           </ShippingFee>
           <NumOption />
-          <AddCart type="button" onClick={(e: any) => addCart()}>
+          <AddCart
+            type="button"
+            onClick={(e: any) => {
+              history.push("/cart");
+              addCart();
+            }}
+          >
             Cart
           </AddCart>
         </ProductPay>
