@@ -20,6 +20,10 @@ interface InputValue {
 const ProductSettingPresenter: FunctionComponent<{
   productname: InputValue;
   productimage: InputValue;
+  price: InputValue;
+  color: InputValue;
+  text: InputValue;
+  size: InputValue;
   handleSubmit: any;
 }> = ({ productname, productimage, handleSubmit }) => {
   return (
