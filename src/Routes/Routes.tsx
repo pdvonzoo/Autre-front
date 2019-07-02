@@ -4,10 +4,12 @@ import Main from "./Main";
 import SignInContainer from "./SignIn";
 import SignUpContainer from "./SignUp";
 import Shop from "./Shop";
-import Product from "./Product";
+import ProductDetail from "./ProductDetail";
 import User from "./User";
 import Cart from "./Cart";
 import Order from "./Order";
+import ProductSettingContainer from "../Components/ProductSetting";
+import Admin from "./Admin";
 
 const AppPath = () => {
   return (
@@ -21,12 +23,18 @@ const LoggedInRoutes = () => {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
+      <Route path="/admin" exact component={Admin} />
       <Route path="/signin" exact component={SignInContainer} />
       <Route path="/signup" exact component={SignUpContainer} />
       <Route path="/shop" exact component={Shop} />
-      <Route path="/shop/:product" exact component={Product} />
-      <Route path="/cart/:userid" exact component={Cart} />
-      <Route path="/order/:userid" exact component={Order} />
+      <Route path="/product/:productid" exact component={ProductDetail} />
+      <Route
+        path="/product/:product/setting"
+        exact
+        component={ProductSettingContainer}
+      />
+      <Route path="/cart" exact component={Cart} />
+      <Route path="/order" exact component={Order} />
       <Route path="/:userid" exact component={User} />
     </Switch>
   );

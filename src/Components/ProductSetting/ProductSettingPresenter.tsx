@@ -17,26 +17,32 @@ interface InputValue {
   onChange: any;
 }
 
-const SignInPresenter: FunctionComponent<{
-  userid: InputValue;
-  secret: InputValue;
+const ProductSettingPresenter: FunctionComponent<{
+  productname: InputValue;
+  productimage: InputValue;
   handleSubmit: any;
-}> = ({ userid, secret, handleSubmit }) => {
+}> = ({ productname, productimage, handleSubmit }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Label>
-        Id
-        <Input defaultValue={userid.value} onChange={userid.onChange} />
+        제품 이름
+        <Input
+          defaultValue={productname.value}
+          onChange={productname.onChange}
+        />
       </Label>
       <Label>
-        Password
-        <Input defaultValue={secret.value} onChange={secret.onChange} />
+        제품 이미지
+        <Input
+          defaultValue={productimage.value}
+          onChange={productimage.onChange}
+        />
       </Label>
       <button type="button" onClick={handleSubmit}>
-        Sign in
+        제품 등록
       </button>
     </Form>
   );
 };
 
-export default SignInPresenter;
+export default ProductSettingPresenter;
