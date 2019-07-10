@@ -20,8 +20,20 @@ interface InputValue {
 const ProductSettingPresenter: FunctionComponent<{
   productname: InputValue;
   productimage: InputValue;
+  price: InputValue;
+  color: InputValue;
+  text: InputValue;
+  size: InputValue;
   handleSubmit: any;
-}> = ({ productname, productimage, handleSubmit }) => {
+}> = ({
+  productname,
+  productimage,
+  price,
+  color,
+  text,
+  size,
+  handleSubmit
+}) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Label>
@@ -37,6 +49,22 @@ const ProductSettingPresenter: FunctionComponent<{
           defaultValue={productimage.value}
           onChange={productimage.onChange}
         />
+      </Label>
+      <Label>
+        가격
+        <Input defaultValue={price.value} onChange={price.onChange} />
+      </Label>
+      <Label>
+        색상
+        <Input defaultValue={color.value} onChange={color.onChange} />
+      </Label>
+      <Label>
+        제품 설명
+        <Input defaultValue={text.value} onChange={text.onChange} />
+      </Label>
+      <Label>
+        크기
+        <Input defaultValue={size.value} onChange={size.onChange} />
       </Label>
       <button type="button" onClick={handleSubmit}>
         제품 등록
