@@ -5,28 +5,11 @@ import "react-dropzone-uploader/dist/styles.css";
 import DropZone from "react-dropzone-uploader";
 import { useMutation } from "react-apollo-hooks";
 import REGISTER_MAIN_INFO from "./MainSettingQuery";
+import axios from "axios";
 
 const MainSetting = () => {
   const logo = useInput("");
   const file = useInput("");
-  const setMainInfo = useMutation(REGISTER_MAIN_INFO, {
-    variables: {
-      file
-    }
-  });
-  const onDrop: any = async ({ meta, remove }: any, status: any) => {
-    console.log(meta, remove, status);
-    file.setValue(meta);
-  };
-  console.log(file);
-  const uploadToS3: any = async (file: any, signedRequest: any) => {
-    setMainInfo();
-    // const options = {
-    //   header: {
-    //     "Content-Type": file.type
-    //   }
-    // };
-  };
 
   const formatFilename = (filename: any) => {
     const date = moment().format("YYYYMMDD");
@@ -38,10 +21,33 @@ const MainSetting = () => {
     return newFileName.substring(0, 60);
   };
 
+  const setMainInfo = useMutation(REGISTER_MAIN_INFO, {
+    variables: {
+      filename: formatFilename(file.value ? file.value.name : ""),
+      filetype: file.value.type
+    }
+  });
+  const onDrop: any = async ({ meta, remove }: any, status: any) => {
+    file.setValue(meta);
+  };
+
+  const uploadToS3 = async (file: any, signedRequest: any) => {
+    const options = {
+      headers: {
+        "Content-Type": file.type
+      }
+    };
+    // console.log(signedRequest, file, options);
+    await axios.put(signedRequest, file, options);
+  };
+
   const submit = async () => {
-    const response = { data: { signS3: { signedRequest: 0, url: 0 } } };
-    const { signedRequest, url } = response.data.signS3;
-    // await uploadToS3(file, signedRequest);
+    const {
+      data: {
+        UploadMainInfo: { signedRequest, url }
+      }
+    } = await setMainInfo();
+    await uploadToS3(file.value, signedRequest);
   };
   return (
     <>
@@ -50,7 +56,9 @@ const MainSetting = () => {
       <div>Main image</div>
       <DropZone canCancel={false} multiple={false} onChangeStatus={onDrop} />
       <div>Main Text</div>
-      <button onSubmit={submit} value="submit" />
+      <button type="button" onClick={submit}>
+        submit
+      </button>
     </>
   );
 };

@@ -1,8 +1,11 @@
 import gql from "graphql-tag";
 
 const REGISTER_MAIN_INFO = gql`
-  mutation UploadMainInfo($file: Upload) {
-    UploadMainInfo(file: $file)
+  mutation UploadMainInfo($filename: String, $filetype: String) {
+    UploadMainInfo(filename: $filename, filetype: $filetype) {
+      signedRequest
+      url
+    }
   }
 `;
 
