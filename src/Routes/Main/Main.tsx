@@ -14,7 +14,7 @@ const MainImageWrapper = styled.div`
 
 const MainImage = styled.img`
   margin: auto;
-  height: 100%;
+  width: 100%;
 `;
 
 const Main = () => {
@@ -24,7 +24,6 @@ const Main = () => {
 
   React.useEffect(() => {
     if (loading) return;
-    console.log(data, loading);
     for (let value of data.GetImages) {
       if (value.title === "logo") {
         logo.setValue(value.url);
@@ -34,10 +33,9 @@ const Main = () => {
       }
     }
   }, [data]);
-  console.log(mainImage.value);
   return (
     <MainImageWrapper>
-      <Header />
+      <Header logo={logo.value} />
       <MainImage src={mainImage.value} alt="main" />
     </MainImageWrapper>
   );
