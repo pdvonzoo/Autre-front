@@ -9,4 +9,10 @@ const REGISTER_MAIN_INFO = gql`
   }
 `;
 
-export default REGISTER_MAIN_INFO;
+const SET_IMAGES = gql`
+  mutation SetImages($title: String, $url: String) {
+    SetImages(title: $title, url: $url)
+  }
+`;
+
+export { REGISTER_MAIN_INFO, SET_IMAGES };

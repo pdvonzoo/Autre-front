@@ -1,22 +1,14 @@
 import React from "react";
 import useInput from "../../Hooks/useInput";
 import moment from "moment";
-import Dropzone, { useDropzone } from "react-dropzone";
+import Dropzone from "react-dropzone";
 import { useMutation } from "react-apollo-hooks";
-import REGISTER_MAIN_INFO from "./MainSettingQuery";
+import { REGISTER_MAIN_INFO, SET_IMAGES } from "./MainSettingQuery";
 import axios from "axios";
 
 const MainSetting = () => {
   const logo = useInput("");
   const mainImage = useInput("");
-
-  const {
-    acceptedFiles,
-    getRootProps,
-    getInputProps,
-    rootRef,
-    inputRef
-  } = useDropzone();
 
   const formatFilename = (filename: any) => {
     const date = moment().format("YYYYMMDD");
@@ -29,6 +21,7 @@ const MainSetting = () => {
   };
 
   const setMainInfo = useMutation(REGISTER_MAIN_INFO);
+  const setImages = useMutation(SET_IMAGES);
 
   const onDrop: any = async (data: any, target: any) => {
     target.setValue(data[0]);
@@ -57,19 +50,20 @@ const MainSetting = () => {
   const submit = async () => {
     const logoUrl = await uploadToS3({ target: logo });
     const mainImageUrl = await uploadToS3({ target: mainImage });
-    console.log(logoUrl, mainImageUrl);
+    await setImages({
+      variables: {
+        title: "logo",
+        url: logoUrl
+      }
+    });
+    await setImages({
+      variables: {
+        title: "mainImage",
+        url: mainImageUrl
+      }
+    });
   };
 
-  // const handleSubmit = async (files: any, allFiles: any) => {
-  //   const {
-  //     data: {
-  //       UploadMainInfo: { signedRequest, url }
-  //     }
-  //   } = await setMainInfo();
-  //   await uploadToS3(files[0], signedRequest);
-  //   // console.log(files.map(f => f.meta));
-  //   // allFiles.forEach(f => f.remove());
-  // };
   return (
     <>
       <Dropzone onDrop={acceptedFiles => onDrop(acceptedFiles, logo)}>
