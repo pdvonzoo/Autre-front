@@ -3,12 +3,13 @@ import useInput from "../../Hooks/useInput";
 import moment from "moment";
 import Dropzone from "react-dropzone";
 import { useMutation } from "react-apollo-hooks";
-import { REGISTER_MAIN_INFO, SET_IMAGES } from "./MainSettingQuery";
+import { REGISTER_MAIN_INFO, SET_IMAGES, SET_TEXTS } from "./MainSettingQuery";
 import axios from "axios";
 
 const MainSetting = () => {
   const logo = useInput("");
   const mainImage = useInput("");
+  const mainText = useInput("");
 
   const formatFilename = (filename: any) => {
     const date = moment().format("YYYYMMDD");
@@ -22,9 +23,14 @@ const MainSetting = () => {
 
   const setMainInfo = useMutation(REGISTER_MAIN_INFO);
   const setImages = useMutation(SET_IMAGES);
+  const setTexts = useMutation(SET_TEXTS);
 
   const onDrop: any = async (data: any, target: any) => {
     target.setValue(data[0]);
+  };
+
+  const handleChange: any = (e: any) => {
+    mainText.setValue(e.target.value);
   };
 
   const uploadToS3 = async ({ target }: any) => {
@@ -48,20 +54,37 @@ const MainSetting = () => {
   };
 
   const submit = async () => {
-    const logoUrl = await uploadToS3({ target: logo });
-    const mainImageUrl = await uploadToS3({ target: mainImage });
-    await setImages({
-      variables: {
-        title: "logo",
-        url: logoUrl
-      }
-    });
-    await setImages({
-      variables: {
-        title: "mainImage",
-        url: mainImageUrl
-      }
-    });
+    if (logo.value) {
+      console.log(logo.value);
+      const logoUrl = await uploadToS3({ target: logo });
+      console.log(1);
+      await setImages({
+        variables: {
+          title: "logo",
+          url: logoUrl
+        }
+      });
+      console.log(2);
+    }
+    if (mainImage.value) {
+      const mainImageUrl = await uploadToS3({ target: mainImage });
+      console.log(3);
+      await setImages({
+        variables: {
+          title: "mainImage",
+          url: mainImageUrl
+        }
+      });
+      console.log(4);
+    }
+    if (mainText.value) {
+      await setTexts({
+        variables: {
+          title: "mainText",
+          url: mainText.value
+        }
+      });
+    }
   };
 
   return (
@@ -89,6 +112,7 @@ const MainSetting = () => {
         )}
       </Dropzone>
       <div>Main Text</div>
+      <input type="text" onChange={handleChange} />
       <button type="button" onClick={submit}>
         submit
       </button>

@@ -15,4 +15,10 @@ const SET_IMAGES = gql`
   }
 `;
 
-export { REGISTER_MAIN_INFO, SET_IMAGES };
+const SET_TEXTS = gql`
+  mutation SetTexts($title: String, $text: String) {
+    SetTexts(title: $title, text: $text)
+  }
+`;
+
+export { REGISTER_MAIN_INFO, SET_IMAGES, SET_TEXTS };

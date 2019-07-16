@@ -9,4 +9,13 @@ const GET_IMAGES = gql`
   }
 `;
 
-export default GET_IMAGES;
+const GET_TEXTS = gql`
+  {
+    GetTexts {
+      title
+      text
+    }
+  }
+`;
+
+export { GET_IMAGES, GET_TEXTS };
