@@ -55,33 +55,28 @@ const MainSetting = () => {
 
   const submit = async () => {
     if (logo.value) {
-      console.log(logo.value);
       const logoUrl = await uploadToS3({ target: logo });
-      console.log(1);
       await setImages({
         variables: {
           title: "logo",
           url: logoUrl
         }
       });
-      console.log(2);
     }
     if (mainImage.value) {
       const mainImageUrl = await uploadToS3({ target: mainImage });
-      console.log(3);
       await setImages({
         variables: {
           title: "mainImage",
           url: mainImageUrl
         }
       });
-      console.log(4);
     }
     if (mainText.value) {
       await setTexts({
         variables: {
           title: "mainText",
-          url: mainText.value
+          text: mainText.value
         }
       });
     }
