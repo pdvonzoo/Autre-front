@@ -3,10 +3,12 @@ import styled from "../../Utils/typed-styledCom";
 
 const LogoWrapper = styled.div`
   display: inline-block;
-  width: 4rem;
-  height: 4rem;
+  width: 11rem;
+  height: 3rem;
 `;
-const LogoIcon = styled.img``;
+const LogoIcon = styled.img`
+  width: 100%;
+`;
 
 const IconWrapper = styled.div`
   display: inline-block;
@@ -16,9 +18,9 @@ const IconWrapper = styled.div`
 
 const UserIcon = styled.img``;
 
-const Logo = () => (
+const Logo = ({ logo }: any) => (
   <LogoWrapper>
-    <LogoIcon />
+    <LogoIcon src={logo} />
   </LogoWrapper>
 );
 

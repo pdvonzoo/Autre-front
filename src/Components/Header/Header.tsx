@@ -10,12 +10,14 @@ const Header = styled.header`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-top: 3.3rem;
+  padding-left: 4.7rem;
 `;
 
-export default () => (
+export default ({ logo }: any) => (
   <Header>
-    <Logo />
-    <Search />
-    <User />
+    <Logo logo={logo} />
+    {/* <Search />
+    <User /> */}
   </Header>
 );
