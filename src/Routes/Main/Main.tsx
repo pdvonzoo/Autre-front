@@ -26,7 +26,7 @@ const Main = () => {
   const mainText = useInput("");
   const images = useQuery(GET_IMAGES);
   const texts = useQuery(GET_TEXTS);
-  console.log(texts);
+
   React.useEffect(() => {
     console.log(images.data);
     if (!images.data.GetImages) return;
@@ -40,20 +40,21 @@ const Main = () => {
     }
   }, [images.loading]);
   React.useEffect(() => {
-    console.log(texts);
     if (!texts.data.GetTexts) return;
 
-    // mainText.setValue([
-    //   ...texts.data.GetText.filter((v: any) => v.title === "mainText")
-    // ]);
+    const newText = texts.data.GetTexts.filter(
+      (v: any) => v.title === "mainText"
+    );
+    mainText.setValue(newText[0]);
   }, [texts.loading]);
+  console.log(mainText);
   return (
     <>
       {!texts.loading && !images.loading ? (
         <MainImageWrapper>
           <Header logo={logo.value} />
           <MainImage src={mainImage.value} alt="main" />
-          <MainText>{mainText.value}</MainText>
+          <MainText>{mainText.value.text}</MainText>
         </MainImageWrapper>
       ) : null}
     </>
